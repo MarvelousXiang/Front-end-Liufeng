@@ -12,7 +12,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "小菜一碟",
+    "navigationBarTitleText": "特色菜品·自动推荐",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

@@ -1,50 +1,43 @@
-<!--index.wxml-->
-<view class="container"> 
-  <view class='top'>
-    <text> </text>
-    <view class='search' bindtap='goSearch'>
-      <image src='/images/search.png'></image>
-      <input placeholder='今天吃点啥' disabled></input>
-    </view>
-    
+
+<view class="tabTit box">
+  <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
+    <text>{{item}}</text>
+    <image src="/img/arrow.png"></image>
   </view>
-  <swiper class='swiper' indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
-      <swiper-item>
-        <image src="{{item.url}}" data-id='{{item.id}}' bindtap='goDetail' class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class='category'>
-    <view wx:for="{{category}}" wx:key='{{index}}' data-tags='{{item.id}}' data-content='{{item.name}}' bindtap='goList'>
-      <image src='{{item.img}}' mode='aspectFit'></image>
-      <text>{{item.name}}</text>
-    </view>
-  </view>
-  <view class='place block'>
-    <view class='title'>
-      <text>热门标签</text>
-      <text class='more' bindtap='goMenu'>查看更多 >> </text>
-    </view>
-    <scroll-view class="scroll-view" scroll-x>
-      <view wx:for='{{scroll}}' wx:key='{{index}}' id='{{item.id}}' data-tags='{{item.id}}' data-content='{{item.name}}' bindtap='goList'>
-        <image src='{{item.img}}'></image>
-        <text>{{item.name}}</text>
+</view>
+<!--筛选项-->
+<view class="tabLayer" hidden="{{tab[0]}}">
+    <text class="{{pinzhong_id==0?'active':''}}" data-id="0" data-index="0" data-txt="品种" bindtap="filter">不限</text>
+    <text class="{{pinzhong_id==item.id?'active':''}}" wx:for="{{pinzhongList}}" wx:key="pp" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-txt="{{item.title}}" bindtap="filter">{{item.title}}</text>
+</view>
+<view class="tabLayer" hidden="{{tab[1]}}">
+    <text class="{{weidao_id==0?'active':''}}" data-id="0" data-index="1" data-txt="味道" bindtap="filter">不限</text>
+    <text class="{{weidao_id==1?'active':''}}" data-id="1" data-index="1" data-txt="甜" bindtap="filter">甜</text>
+    <text class="{{weidao_id==2?'active':''}}" data-id="2" data-index="1" data-txt="咸" bindtap="filter">咸</text>
+    <text class="{{weidao_id==3?'active':''}}" data-id="3" data-index="1" data-txt="酸" bindtap="filter">酸</text>
+    <text class="{{weidao_id==4?'active':''}}" data-id="4" data-index="1" data-txt="辣" bindtap="filter">辣</text>
+</view>
+<view class="tabLayer" hidden="{{tab[2]}}">
+    <text class="{{shoucang_id==0?'active':''}}" data-id="0" data-index="2" data-txt="收藏数" bindtap="filter">不限</text>
+    <text class="{{shoucang_id==1?'active':''}}" data-id="1" data-index="2" data-txt="从高到低" bindtap="filter">从高到低</text>
+    <text class="{{shoucang_id==2?'active':''}}" data-id="2" data-index="2" data-txt="从低到高" bindtap="filter">从低到高</text>
+</view>
+ 
+<view class='list'>
+  <block wx:for='{{dataList}}' wx:key='list' wx:for-item="item">
+  <view class="list_item">
+      <navigator url='details?id={{item.goods_id}}'>
+      <view class='img'>
+        <image src="{{imghref}}{{item.goods_img}}"  mode="scaleToFill"/>
       </view>
-    </scroll-view>
-  </view>
-  <view class='like block'>
-    <view class='title'>
-      <text>猜你喜欢</text>
-      <text class='more'>您喜欢的美食 </text>
-    </view>
-    <view class="list">
-      <view class='box' wx:for='{{list}}' wx:key='{{index}}' data-tags='{{item.id}}'  data-id='{{item.id}}' data-content='{{item.name}}' bindtap='goList'>
-        <image src='{{item.img}}'></image>
-        <view class='tip'>
-          <text>{{item.name}}</text> 
-        </view>
+      <view class='info'>
+        <view class='title'>{{item.goods_title}}</view>
+        <view class='price'>品种：{{item.goods_pinzhong}}</view>
+        <view class='price'>味道：{{item.goods_weidao}}</view>
+        <view class='num'>收藏数{{item.goods_xiaoliang}}</view>
       </view>
-    </view>
+       </navigator>
+      <view class='clear'></view>
   </view>
+  </block>
 </view>
