@@ -2,7 +2,7 @@
 <view class="tabTit box">
   <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
     <text>{{item}}</text>
-    <image src="/img/arrow.png"></image>
+    <image src="/images/arrow.png"></image>
   </view>
 </view>
 <!--筛选项-->

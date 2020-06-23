@@ -20,7 +20,6 @@
     "selectedColor": "#FF6262",
     "borderStyle": "white",
     "backgroundColor": "#fff",
-    "box-shadow": "0 0 6px 0",
     "list": [
       {
         "pagePath": "pages/index/index",
