@@ -13,12 +13,14 @@
 		"autoAudits": false,
 		"coverView": true,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false
+		"scopeDataCheck": false,
+		"checkSiteMap": false,
+		"useCompilerModule": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.0",
 	"appid": "wxf87d071d97ebf0c9",
-	"projectname": "miniprogram-1",
+	"projectname": "自动菜色推荐系统",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
