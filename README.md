@@ -1,11 +1,11 @@
-#菜谱小程序
+# 菜谱小程序
 
-##鸣谢
+## 鸣谢
 
 本次使用demo主要是在 github上找到的开源项目
 [demo地址](https://github.com/caochangkui/miniprogram-project)
 
-##部分截图
+## 部分截图
 
 ![用户界面](http://212.64.68.219:9090/IMG_20200625_222544.jpg)
 
@@ -13,7 +13,7 @@
 
 ![主界面](http://212.64.68.219:9090/IMG_20200625_222624.jpg)
 
-##项目结构
+## 项目结构
 
 ```
 .
@@ -48,9 +48,9 @@
 
 ```
 
-###部分代码细节
+### 部分代码细节
 
-####查询数据、分页查询
+#### 查询数据、分页查询
 
 编辑 index.js：
 
@@ -85,7 +85,7 @@ exports.main = async (event, context) => {
 
 ```
 
-####使用 collection_get 云函数
+#### 使用 collection_get 云函数
 
 例如，按照查询条件`{tags: '荤菜'}`查询菜品列表，每页`num = 6`条数据:
 
@@ -127,7 +127,7 @@ wx.cloud.callFunction({
 }
 ```
 
-####更新数据
+#### 更新数据
 
 编辑 index.js:
 
@@ -157,7 +157,7 @@ exports.main = async (event, context) => {
 }
 ```
 
-####使用 collection_update 云函数
+#### 使用 collection_update 云函数
 
 更新某_id数据的打开人数：
 
@@ -175,7 +175,7 @@ wx.cloud.callFunction({
 ```
 
 
-####数据库模糊查询
+#### 数据库模糊查询
 
 ```
 let database = 'gushici'
@@ -220,6 +220,6 @@ wx.cloud.callFunction({
 .catch(console.error)
 ```
 
-####使用 async/await 处理异步
+#### 使用 async/await 处理异步
 
 参考文章：[微信小程序中使用Async/await方法处理异步请求](https://www.cnblogs.com/cckui/p/10231801.html)
